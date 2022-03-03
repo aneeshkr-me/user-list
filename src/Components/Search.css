@@ -1,0 +1,22 @@
+.Search {
+  width: 40%;
+}
+.Search__input {
+  width: 100%;
+  padding: 1rem;
+  outline: none;
+  border-radius: 4px;
+  color: var(--font-color);
+  border: 2px solid var(--light-blue);
+}
+.Search__input:focus-visible,
+.Search__input:hover {
+  transition: .3s ease-in-out;
+  border-color: var(--dark-blue);
+  outline: var(--dark-blue);
+}
+@media screen and (max-width: 992px) {
+  .Search {
+    width: 100%;
+  }
+}

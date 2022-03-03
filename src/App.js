@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Card from './Components/Card';
+import Filter from './Components/Filter';
+import Search from './Components/Search';
 
 function App() {
+  const [user, setUser] = useState([])
+  useEffect(() => {
+    axios.get("https://randomuser.me/api/?results=20").then((response) => {
+      setUser(response.data.results);
+    })
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2 className="heading">Users</h2>
+      <div className="Nav">
+        <Search />
+        <Filter />
+      </div>
+      <div className="Card__container">
+        <Card user={user} />
+      </div>
     </div>
   );
 }

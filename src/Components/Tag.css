@@ -1,0 +1,9 @@
+.Tag {
+  color: var(--highlight-blue);
+  border: 1px solid var(--highlight-blue);
+  border-radius: 16px;
+  padding: 2px 8px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
