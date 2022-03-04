@@ -2,10 +2,13 @@ import React from 'react'
 import Tag from './Tag'
 import "./Card.css"
 
-const Card = ({ user }) => {
+const Card = ({ user, search }) => {
 
   return (
-    user.map((user, i) => {
+    user.filter((filteredUser) => {
+      if (filteredUser === "") return
+      else if (filteredUser.name.first.toLowerCase().includes(search.toLowerCase())) return filteredUser
+    }).map((user, i) => {
       return (
         <div className='Card' key={i}>
           <img className='Card__profile' src={user.picture.large} alt="" />
